@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Day 2026 — 智慧醫療創新論壇暨海報競賽</title>
+  <link rel="icon" href="https://dbmi.cmu.edu.tw/sites/templatedrupal.cmu.edu.tw/files/1200px-China_Medical_University_%28Taiwan%29_logo.svg.png" type="image/png">
+  <style>
+    /* ── Reset & Variables ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0D2137;
+      --blue:   #1B4B82;
+      --teal:   #00A8A0;
+      --cyan:   #29D9CC;
+      --light:  #E6F5F4;
+      --white:  #FFFFFF;
+      --gray:   #8A9BB0;
+      --text:   #1A2E42;
+      --card:   #F0F8F8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', 'PingFang TC', 'Noto Sans TC', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Navbar ────────────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: rgba(13, 33, 55, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,168,160,0.25);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+    .nav-logo span { color: var(--white); font-weight: 300; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--cyan);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-btn {
+      background: var(--teal);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.1s !important;
+    }
+    .nav-btn:hover { background: var(--cyan) !important; color: var(--navy) !important; transform: translateY(-1px); }
+    .nav-btn::after { display: none !important; }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #0F3057 50%, #0D4D4A 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated grid bg */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,168,160,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,168,160,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0%   { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+
+    /* Glowing orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .orb-1 { width: 500px; height: 500px; background: var(--teal);  top: -100px; left: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: var(--blue);  bottom: -80px; right: -60px; }
+    .orb-3 { width: 300px; height: 300px; background: var(--cyan);  top: 40%; left: 50%; transform: translate(-50%,-50%); }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,168,160,0.15);
+      border: 1px solid rgba(0,168,160,0.4);
+      color: var(--cyan);
+      padding: 6px 18px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-title .ai { color: var(--cyan); }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 36px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .meta-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .hero-meta-item strong { font-size: 1rem; color: var(--white); }
+    .hero-meta-item small  { color: var(--gray); font-size: 0.82rem; }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,168,160,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--cyan);
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(41,217,204,0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(0,168,160,0.08);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      animation: bounce 2s ease-in-out infinite;
+      z-index: 1;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── Section common ────────────────────────────────────── */
+    section { padding: 90px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-title .accent { color: var(--teal); }
+    .section-desc {
+      color: #5A7290;
+      font-size: 1rem;
+      max-width: 640px;
+    }
+    .section-head { margin-bottom: 56px; }
+
+    /* ── About ─────────────────────────────────────────────── */
+    #about { background: var(--white); }
+
+    .about-two-col {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .about-intro {
+      color: #5A7290;
+      font-size: 1rem;
+      line-height: 1.85;
+      margin-bottom: 32px;
+    }
+
+    .fact-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fact-item {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: 13px 0 13px 18px;
+      border-left: 3px solid var(--teal);
+      border-bottom: 1px solid rgba(0,168,160,0.1);
+    }
+    .fact-item:last-child { border-bottom: none; }
+
+    .fact-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--teal);
+      letter-spacing: 0.5px;
+      min-width: 32px;
+      flex-shrink: 0;
+    }
+
+    .fact-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Deadline card (right col) */
+    .deadline-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0,168,160,0.2);
+      box-shadow: 0 6px 32px rgba(0,100,100,0.08);
+      position: sticky;
+      top: 84px;
+    }
+
+    .deadline-card-header {
+      background: linear-gradient(90deg, var(--teal) 0%, var(--blue) 100%);
+      padding: 11px 24px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .deadline-card-body {
+      padding: 28px 28px 32px;
+    }
+
+    .deadline-card-date {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .deadline-card-sub {
+      color: var(--gray);
+      font-size: 0.82rem;
+      margin-bottom: 24px;
+    }
+
+    .deadline-notes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .deadline-notes li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #5A7290;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .deadline-notes li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── Speaker ───────────────────────────────────────────── */
+    #speaker { background: linear-gradient(180deg, #F0F8F8 0%, var(--white) 100%); }
+
+    .speaker-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      border: 1px solid rgba(0,168,160,0.15);
+      box-shadow: 0 8px 40px rgba(0,100,100,0.07);
+      max-width: 820px;
+    }
+    .speaker-avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .speaker-info h3 { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .speaker-org {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,168,160,0.1);
+      color: var(--teal);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .speaker-topic {
+      background: var(--card);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 20px;
+    }
+    .speaker-topic p { color: #5A7290; font-size: 0.88rem; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .speaker-topic h4 { color: var(--navy); font-size: 1rem; font-weight: 700; }
+
+    /* ── Agenda / Schedule ────────────────────────────────── */
+    #agenda { background: var(--white); }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), var(--blue));
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+      position: relative;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .timeline-item.visible { opacity: 1; transform: translateX(0); }
+
+    .timeline-dot {
+      position: absolute;
+      left: -31px;
+      top: 22px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .timeline-item.highlight .timeline-dot {
+      background: var(--cyan);
+      box-shadow: 0 0 0 2px var(--cyan), 0 0 14px rgba(41,217,204,0.5);
+      width: 18px; height: 18px;
+      left: -33px; top: 20px;
+    }
+
+    .timeline-time {
+      min-width: 105px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--teal);
+      padding-top: 18px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .timeline-content {
+      flex: 1;
+      background: var(--card);
+      border-radius: 10px;
+      padding: 18px 22px;
+      border: 1px solid rgba(0,168,160,0.1);
+    }
+    .timeline-item.highlight .timeline-content {
+      background: linear-gradient(135deg, #E6F9F8 0%, #F0F8FF 100%);
+      border-color: rgba(0,168,160,0.3);
+    }
+    .timeline-content h4 { font-size: 0.98rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .timeline-content p  { font-size: 0.88rem; color: #5A7290; }
+
+    .agenda-tag {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 100px;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .agenda-tag.poster { background: var(--blue); }
+    .agenda-tag.break  { background: #8A9BB0; }
+
+    /* ── Competition ──────────────────────────────────────── */
+    #competition { background: linear-gradient(180deg, var(--white) 0%, #F0F8F8 100%); }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .comp-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 30px 26px;
+      border: 1px solid rgba(0,168,160,0.12);
+      box-shadow: 0 4px 20px rgba(0,100,100,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .comp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,100,100,0.1); }
+    .comp-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 14px;
+      font-variant-numeric: tabular-nums;
+    }
+    .comp-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .comp-card p  { font-size: 0.88rem; color: #5A7290; line-height: 1.65; }
+
+    /* ── Submission ───────────────────────────────────────── */
+    #submission { background: var(--white); }
+
+    .sub-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .sub-tab {
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 2px solid rgba(0,168,160,0.25);
+      color: var(--teal);
+      background: transparent;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .sub-tab.active {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+      animation: none;
+    }
+    .sub-tab:hover {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+    /* 未選中的 tab 邊框脈衝，提示可點擊 */
+    .sub-tab:not(.active).pulsing {
+      animation: tabPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes tabPulse {
+      0%, 100% {
+        border-color: rgba(0,168,160,0.25);
+        box-shadow: none;
+      }
+      50% {
+        border-color: var(--teal);
+        box-shadow: 0 0 0 4px rgba(0,168,160,0.15);
+      }
+    }
+
+    .sub-content { display: none; }
+    .sub-content.active { display: block; }
+
+    .sub-block {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px 32px;
+      border: 1px solid rgba(0,168,160,0.12);
+    }
+    .sub-block h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .sub-list { list-style: none; }
+    .sub-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,168,160,0.08);
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+    .sub-list li:last-child { border-bottom: none; }
+    .sub-list li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Awards ───────────────────────────────────────────── */
+    #awards { background: linear-gradient(135deg, var(--navy) 0%, #0F3057 60%, #0D4D4A 100%); }
+    #awards .section-title { color: var(--white); }
+    #awards .section-label { color: var(--cyan); }
+    #awards .section-desc { color: rgba(255,255,255,0.55); }
+
+    .awards-grid {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 52px;
+    }
+
+    .award-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 36px 30px;
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s;
+    }
+    .award-card:hover { transform: translateY(-6px); }
+    .award-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 80%; height: 2px;
+    }
+    .award-card.gold::before   { background: #FFD700; }
+    .award-card.silver::before { background: #C0C0C0; }
+    .award-card.bronze::before { background: #CD7F32; }
+
+    .award-medal {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 14px;
+      display: block;
+      letter-spacing: -1px;
+    }
+    .award-card.gold   .award-medal { color: #FFD700; }
+    .award-card.silver .award-medal { color: #C8D4DC; }
+    .award-card.bronze .award-medal { color: #CD9B7A; }
+    .award-count {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+    }
+    .award-title { font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+    .award-subtitle { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+    .award-prize {
+      display: inline-block;
+      background: rgba(0,168,160,0.2);
+      color: var(--cyan);
+      padding: 6px 18px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* ── Register ─────────────────────────────────────────── */
+    #register { background: var(--white); text-align: center; }
+
+    .register-box {
+      max-width: 680px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #E6F9F8 0%, #EAF3FF 100%);
+      border-radius: 20px;
+      padding: 60px 48px;
+      border: 1px solid rgba(0,168,160,0.2);
+      box-shadow: 0 16px 60px rgba(0,100,100,0.08);
+    }
+    .register-box h2 { font-size: 2rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .register-box p  { color: #5A7290; margin-bottom: 36px; font-size: 1rem; }
+    .register-note  { font-size: 0.82rem; color: var(--gray); margin-top: 18px; }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(0,168,160,0.15);
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+    footer a:hover { color: var(--cyan); }
+
+    /* ── Scroll-reveal ────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Transport ─────────────────────────────────────────── */
+    #transport { background: linear-gradient(180deg, #F0F8F8 0%, var(--white) 100%); }
+
+    .transport-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .transport-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 24px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .transport-info h3:first-child { margin-top: 0; }
+
+    .transport-info ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .transport-info ul li {
+      font-size: 0.9rem;
+      color: #5A7290;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.55;
+    }
+    .transport-info ul li::before {
+      content: '•';
+      color: var(--teal);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .transport-address {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 16px 20px;
+      border: 1px solid rgba(0,168,160,0.15);
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .transport-address strong { color: var(--navy); }
+
+    .btn-more-routes {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      padding: 9px 20px;
+      border-radius: 7px;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-more-routes:hover { background: var(--teal); color: var(--white); }
+
+    .transport-map {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0,168,160,0.15);
+      box-shadow: 0 6px 28px rgba(0,100,100,0.08);
+      position: sticky;
+      top: 84px;
+    }
+    .transport-map iframe {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .transport-grid { grid-template-columns: 1fr; }
+      .transport-map { position: static; }
+      .transport-map iframe { height: 280px; }
+    }
+
+    /* ── Back to Top ───────────────────────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 990;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(0,168,160,0.4);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, background 0.2s;
+      pointer-events: none;
+    }
+    #back-to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #back-to-top:hover {
+      background: var(--cyan);
+    }
+    #back-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ── Hamburger ─────────────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      border-radius: 6px;
+      transition: background 0.2s;
+      z-index: 1001;
+    }
+    .nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+    .nav-hamburger .bar {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s, width 0.3s;
+      transform-origin: center;
+    }
+    /* 開啟時三條線變 X */
+    .nav-hamburger.open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open .bar:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0; right: 0;
+      background: rgba(13, 33, 55, 0.98);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,168,160,0.2);
+      z-index: 998;
+      padding: 16px 0 24px;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .nav-mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-mobile-menu ul li a {
+      display: block;
+      padding: 14px 28px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-mobile-menu ul li a:hover { color: var(--cyan); background: rgba(0,168,160,0.08); }
+    .nav-mobile-menu ul li:last-child a {
+      margin: 14px 24px 0;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 700;
+      text-align: center;
+    }
+    .nav-mobile-menu ul li:last-child a:hover { background: var(--cyan); color: var(--navy); }
+
+    /* ── Mobile ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      #navbar { padding: 0 20px; }
+      .about-two-col { grid-template-columns: 1fr; }
+      .deadline-card { position: static; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .deadline-banner { flex-direction: column; }
+      .speaker-card { flex-direction: column; }
+      .timeline { padding-left: 16px; }
+      .timeline-time { min-width: 80px; font-size: 0.78rem; }
+      .timeline-dot { left: -23px; }
+      .timeline-item.highlight .timeline-dot { left: -25px; }
+      .register-box { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ═══════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">
+    <img src="https://dbmi.cmu.edu.tw/sites/templatedrupal.cmu.edu.tw/files/siteinfo/1140502%E4%B8%AD%E5%9C%8B%E6%96%BD%E7%BE%8E%E5%A6%82-%E5%A4%A7%E6%95%B8%E6%93%9A%E4%B8%AD%E5%BF%83logo-05.png"
+         alt="中國醫藥大學醫療資訊學系"
+         onerror="this.style.display='none'">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">關於活動</a></li>
+    <li><a href="#speaker">大師講堂</a></li>
+    <li><a href="#agenda">議程</a></li>
+    <li><a href="#competition">競賽說明</a></li>
+    <li><a href="#submission">繳交規定</a></li>
+    <li><a href="#awards">競賽獎勵</a></li>
+    <li><a href="#transport">交通指引</a></li>
+    <li><a href="#register" class="nav-btn">立即報名</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+</nav>
+
+<!-- Back to Top -->
+<button id="back-to-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<!-- Mobile drawer -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about"      class="mobile-link">關於活動</a></li>
+    <li><a href="#speaker"    class="mobile-link">大師講堂</a></li>
+    <li><a href="#agenda"     class="mobile-link">議程</a></li>
+    <li><a href="#competition" class="mobile-link">競賽說明</a></li>
+    <li><a href="#submission" class="mobile-link">繳交規定</a></li>
+    <li><a href="#awards"     class="mobile-link">競賽獎勵</a></li>
+    <li><a href="#transport"  class="mobile-link">交通指引</a></li>
+    <li><a href="#register"   class="mobile-link">立即報名</a></li>
+  </ul>
+</div>
+
+<!-- ══ HERO ═════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <h1 class="hero-title"><span class="ai">AI</span> Day<br>2026</h1>
+  <p class="hero-subtitle">智慧醫療創新論壇暨海報競賽</p>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="meta-label">Date</span>
+      <strong>2026 年 7 月 4 日（六）</strong>
+      <small>09:00 – 16:00</small>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-label">Venue</span>
+      <strong>立夫教學大樓 105 教室</strong>
+      <small>中國醫藥大學</small>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-label">Deadline</span>
+      <strong>報名截止：6 月 29 日</strong>
+      <small>資料上傳至雲端</small>
+    </div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#register" class="btn-primary">立即報名參賽</a>
+    <a href="#agenda" class="btn-secondary">查看議程 ↓</a>
+  </div>
+
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+      <path d="M8 1v18M1 13l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══ ABOUT ════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">About</span>
+      <h2 class="section-title">關於 <span class="accent">AI Day</span></h2>
+      <p class="section-desc">
+        旨在鼓勵本校學生參與醫療資訊領域的基礎和應用研究，培養學術發表能力，推動科學技術的進步與創新。
+      </p>
+    </div>
+
+    <div class="about-two-col">
+
+      <!-- 左欄：說明 + 關鍵資訊 -->
+      <div class="reveal">
+        <p class="about-intro">
+          「2026 DBMI AI DAY」為中國醫藥大學醫療資訊學系系學會主辦的第二屆年度競賽盛會，旨在鼓勵本校學生積極參與醫療資訊領域的基礎與應用研究，培養學術發表能力，並推動科學技術的進步與創新。本活動以英文為主要語言，邀請醫療資訊相關研究背景師資擔任評審，是展現研究成果、拓展交流的最佳舞台。
+        </p>
+        <div class="fact-list">
+          <div class="fact-item">
+            <span class="fact-label">主題</span>
+            <span class="fact-text">涵蓋所有醫療資訊相關之臨床與基礎研究</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">對象</span>
+            <span class="fact-text">中國醫藥大學大學生及碩博班研究生</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">競賽</span>
+            <span class="fact-text">大師講堂 ＋ 海報競賽 ＋ 英文口頭報告（擇優 6 組）</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">獎勵</span>
+            <span class="fact-text">特優、優等及佳作，頒發獎狀及獎學金</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右欄：截止日期卡片 -->
+      <div class="deadline-card reveal" style="transition-delay:0.15s">
+        <div class="deadline-card-header">收件截止時間</div>
+        <div class="deadline-card-body">
+          <div class="deadline-card-date">2026 年 6 月 29 日（一）</div>
+          <div class="deadline-card-sub">上傳至雲端（詳見報名連結）</div>
+          <ul class="deadline-notes">
+            <li>活動完全免費，歡迎踴躍投稿</li>
+            <li>評審由醫療資訊相關研究背景師資擔任</li>
+            <li>活動以英文為主要語言</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPEAKER ═══════════════════════════════════════════════ -->
+<section id="speaker">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Keynote Speaker</span>
+      <h2 class="section-title">大師 <span class="accent">講堂</span></h2>
+      <p class="section-desc">邀請業界領袖分享最前沿的 AI 在醫療生態系中的實踐與展望。</p>
+    </div>
+
+    <div class="speaker-card reveal">
+      <div class="speaker-avatar">劉</div>
+      <div class="speaker-info">
+        <h3>劉致宏 總監</h3>
+        <div class="speaker-org">台灣微軟 健康與醫療產業</div>
+        <div class="speaker-topic">
+          <p>演講主題</p>
+          <h4>打造 AI Native Hospital：從資料、雲端到醫療生態系的轉型藍圖</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AGENDA ════════════════════════════════════════════════ -->
+<section id="agenda">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Schedule</span>
+      <h2 class="section-title">活動 <span class="accent">議程</span></h2>
+      <p class="section-desc">2026 年 7 月 4 日（六）全日議程</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">09:00 – 09:25</div>
+        <div class="timeline-content">
+          <span class="agenda-tag break">報到</span>
+          <h4>Registration</h4>
+          <p>現場報到、領取資料</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">09:25 – 09:30</div>
+        <div class="timeline-content">
+          <h4>開場致詞</h4>
+          <p>Opening Remarks</p>
+        </div>
+      </div>
+
+      <div class="timeline-item highlight">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">09:30 – 10:20</div>
+        <div class="timeline-content">
+          <span class="agenda-tag">大師講堂 Keynote</span>
+          <h4>台灣微軟 劉致宏 總監</h4>
+          <p>打造 AI Native Hospital：從資料、雲端到醫療生態系的轉型藍圖</p>
+        </div>
+      </div>
+
+      <div class="timeline-item highlight">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">10:30 – 12:00</div>
+        <div class="timeline-content">
+          <span class="agenda-tag">學術分享</span>
+          <h4>醫學 AI 研究主題分享</h4>
+          <p>中醫大醫資系師資主講，分享醫療資訊最新研究成果</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">12:10 – 13:30</div>
+        <div class="timeline-content">
+          <span class="agenda-tag break">餐敘</span>
+          <h4>午餐暨中場休息</h4>
+          <p>Lunch &amp; Networking</p>
+        </div>
+      </div>
+
+      <div class="timeline-item highlight">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">13:30 – 15:30</div>
+        <div class="timeline-content">
+          <span class="agenda-tag poster">海報競賽</span>
+          <h4>智慧醫療創新海報競賽</h4>
+          <p>各參賽者展示研究海報，由評審進行問答評分</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">15:30 – 16:00</div>
+        <div class="timeline-content">
+          <span class="agenda-tag">頒獎</span>
+          <h4>頒獎典禮暨賦歸</h4>
+          <p>Award Ceremony &amp; Closing</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPETITION ═══════════════════════════════════════════ -->
+<section id="competition">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Competition</span>
+      <h2 class="section-title">競賽 <span class="accent">說明</span></h2>
+      <p class="section-desc">了解海報競賽的主題範圍、方式與評分說明。</p>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp-card reveal">
+        <div class="comp-num">01</div>
+        <h3>競賽主題</h3>
+        <p>涵蓋所有醫療資訊相關之臨床與基礎研究，包含但不限於 AI 醫療影像分析、電子健康紀錄、智慧診斷輔助系統等。</p>
+      </div>
+      <div class="comp-card reveal" style="transition-delay:0.1s">
+        <div class="comp-num">02</div>
+        <h3>競賽方式</h3>
+        <p>以英文為主，參賽者於展示區域張貼計畫海報，由具醫療資訊研究背景之本校老師進行口頭問答評分。</p>
+      </div>
+      <div class="comp-card reveal" style="transition-delay:0.2s">
+        <div class="comp-num">03</div>
+        <h3>評分標準</h3>
+        <p>評分依據海報內容完整性、研究創新性、AI 應用深度、版面清晰度及問答表現等多個面向綜合評分。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SUBMISSION ════════════════════════════════════════════ -->
+<section id="submission">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Submission</span>
+      <h2 class="section-title">繳交 <span class="accent">規定</span></h2>
+      <p class="section-desc">請於 6 月 29 日（一）前完成資料上傳，以下為詳細格式要求。</p>
+    </div>
+
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="switchTab('abstract', this)">摘要 Abstract</button>
+      <button class="sub-tab" onclick="switchTab('poster', this)">海報 Poster</button>
+    </div>
+
+    <div id="tab-abstract" class="sub-content active">
+      <div class="sub-block reveal">
+        <h3>摘要撰寫規範</h3>
+        <ul class="sub-list">
+          <li>內容以英文為主，包含標題、作者及單位、摘要本文、關鍵字詞</li>
+          <li>使用電腦打字，字級 12 點、1.5 倍行距</li>
+          <li>英文摘要約 250 字</li>
+          <li>自訂關鍵字詞 3 至 5 個</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="tab-poster" class="sub-content">
+      <div class="sub-block reveal">
+        <h3>海報製作規範</h3>
+        <ul class="sub-list">
+          <li>壁報尺寸：84.1 cm（寬）× 118.9 cm（高），A0 規格；上下請各留 2 公分空白</li>
+          <li>內容以英文為主，需包含標題、作者及單位、背景介紹、研究目標、AI 應用、結論、參考文獻</li>
+          <li>圖表數量不限，注意版面安排、圖片清晰度及可讀性</li>
+          <li>參賽人須自行列印海報，請注意學術倫理及版權</li>
+          <li>不得直接翻譯或抄襲他人之圖表、論文或著作；如引用他人資料，請清楚標明來源</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AWARDS ════════════════════════════════════════════════ -->
+<section id="awards">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Awards</span>
+      <h2 class="section-title">競賽 <span class="accent" style="color:var(--cyan)">獎勵</span></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.55)">
+        獎狀及獎學金依名次頒發，總獎金 19,000 元。
+      </p>
+    </div>
+
+    <div class="awards-grid">
+      <div class="award-card gold reveal">
+        <span class="award-medal">特優</span>
+        <div class="award-title">2,500 元／人</div>
+        <div class="award-subtitle">獎狀 ＋ 獎學金</div>
+        <div class="award-count">2 位</div>
+      </div>
+      <div class="award-card silver reveal" style="transition-delay:0.1s">
+        <span class="award-medal">優等</span>
+        <div class="award-title">1,500 元／人</div>
+        <div class="award-subtitle">獎狀 ＋ 獎學金</div>
+        <div class="award-count">6 位</div>
+      </div>
+      <div class="award-card bronze reveal" style="transition-delay:0.2s">
+        <span class="award-medal">佳作</span>
+        <div class="award-title">500 元／人</div>
+        <div class="award-subtitle">獎狀 ＋ 獎學金</div>
+        <div class="award-count">10 位</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REGISTER ══════════════════════════════════════════════ -->
+<section id="register">
+  <div class="container">
+    <div class="register-box reveal">
+      <h2>立即報名參賽</h2>
+      <p>
+        歡迎本校大學生及碩博班研究生踴躍報名，<br>
+        截止日期 <strong>2026 年 6 月 29 日（一）</strong>，名額有限，請把握機會！
+      </p>
+      <!-- 請將下方 href 替換為實際的 Google 表單連結 -->
+      <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn-primary" style="font-size:1.1rem; padding:16px 48px;">
+        前往 Google 表單報名
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <p class="register-note">如有問題請聯繫醫療資訊學系辦公室</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRANSPORT ═════════════════════════════════════════════ -->
+<section id="transport">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Venue &amp; Transport</span>
+      <h2 class="section-title">交通 <span class="accent">指引</span></h2>
+      <p class="section-desc">活動地點位於中國醫藥大學英才校區，以下提供各種交通方式參考。</p>
+    </div>
+
+    <div class="transport-grid">
+
+      <!-- 左欄：文字資訊 -->
+      <div class="transport-info reveal">
+
+        <div class="transport-address">
+          <strong>活動地點</strong><br>
+          立夫教學大樓 105 教室<br>
+          <span style="color:#5A7290">404 台中市北區學士路 91 號（中國醫藥大學英才校區）</span>
+        </div>
+
+        <h3>大眾運輸</h3>
+        <ul>
+          <li>
+            <span><strong>高鐵台中站（烏日）</strong>：搭統聯 159 號公車，於「中山堂」站下車，步行 1–2 分鐘，車程約 40 分鐘</span>
+          </li>
+          <li>
+            <span><strong>台中火車站</strong>：搭統聯 61 號公車，於「中國醫藥大學」站下車，步行 1–2 分鐘</span>
+          </li>
+          <li>
+            <span><strong>其他路線</strong>：統聯 25、77、18 號，台中客運 35、131 號，東南客運 67 號，均可於「中國醫藥大學」站下車</span>
+          </li>
+        </ul>
+
+        <h3>自行開車</h3>
+        <ul>
+          <li><span><strong>國道 1 號南下</strong>：大雅交流道（174.2K）下，經中清路→大雅路左轉英才路，與學士路交叉口即到</span></li>
+          <li><span><strong>國道 1 號北上</strong>：台中交流道（178.6K）下，經中港路左轉英才路，與學士路交叉口即到</span></li>
+          <li><span><strong>國道 3 號</strong>：沙鹿交流道或中投交流道下，循英才路或學士路方向前進</span></li>
+        </ul>
+
+        <h3>附近停車</h3>
+        <ul>
+          <li><span>復建大樓停車場（機械式）— 每小時 40 元</span></li>
+          <li><span>中正公園地下停車場（平面）— 每小時 40 元</span></li>
+          <li><span>五權立體停車場 — 汽車每小時 30 元 / 機車每次 20 元</span></li>
+        </ul>
+
+        <a href="https://dbmi.cmu.edu.tw/page/66" target="_blank" class="btn-more-routes">
+          更多交通路線 →
+        </a>
+
+      </div>
+
+      <!-- 右欄：Google Map -->
+      <div class="transport-map reveal" style="transition-delay:0.15s">
+        <iframe
+          src="https://maps.google.com/maps?q=中國醫藥大學英才校區,台中市北區學士路91號&hl=zh-TW&z=16&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="中國醫藥大學英才校區地圖">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <p>© 2026 中國醫藥大學 醫療資訊學系 · <a href="https://dbmi.cmu.edu.tw/" target="_blank">dbmi.cmu.edu.tw</a></p>
+  <p style="margin-top:6px; font-size:0.78rem;">AI Day 2026 — 智慧醫療創新論壇暨海報競賽</p>
+</footer>
+
+<!-- ══ JAVASCRIPT ═════════════════════════════════════════════ -->
+<script>
+  /* ── Scroll reveal ───────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal, .timeline-item');
+  const observer  = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ── Navbar scroll style ─────────────────────── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.style.background = window.scrollY > 80
+      ? 'rgba(13, 33, 55, 0.98)'
+      : 'rgba(13, 33, 55, 0.92)';
+  });
+
+  /* ── Active nav highlight ────────────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}`
+        ? 'var(--cyan)' : '';
+    });
+  });
+
+  /* ── Tab switcher ────────────────────────────── */
+  const allTabs = document.querySelectorAll('.sub-tab');
+
+  // 頁面載入後啟動脈衝（提示可點擊）
+  allTabs.forEach(t => t.classList.add('pulsing'));
+
+  function switchTab(id, btn) {
+    document.querySelectorAll('.sub-content').forEach(el => el.classList.remove('active'));
+    allTabs.forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    // 點過一次後停止所有脈衝
+    allTabs.forEach(t => t.classList.remove('pulsing'));
+  }
+
+  /* ── Back to Top ────────────────────────────── */
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('show', window.scrollY > 300);
+  });
+
+  /* ── Hamburger menu ─────────────────────────── */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navLinksEl = document.querySelector('.nav-links');
+  const navEl      = document.getElementById('navbar');
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
+  }
+
+  // 偵測 navbar 是否放得下所有連結
+  function syncNav() {
+    // 暫時讓 nav-links 可見以量測寬度
+    navLinksEl.style.cssText = 'display:flex;visibility:hidden;position:absolute;';
+    const linksW = navLinksEl.scrollWidth;
+    const logoW  = document.querySelector('.nav-logo').offsetWidth;
+    const navW   = navEl.offsetWidth;
+    const padding = parseInt(getComputedStyle(navEl).paddingLeft) * 2;
+    const fits = logoW + 24 + linksW + padding <= navW;
+
+    navLinksEl.style.cssText = '';            // 還原 inline style
+    navLinksEl.style.display = fits ? 'flex' : 'none';
+    hamburger.style.display  = fits ? 'none' : 'flex';
+    mobileMenu.style.display = 'block';       // drawer 永遠保留在 DOM
+
+    if (fits) closeMenu();
+  }
+
+  new ResizeObserver(syncNav).observe(navEl);
+  syncNav(); // 初始執行一次
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  /* ── Countdown (optional display) ───────────── */
+  function updateCountdown() {
+    const deadline = new Date('2026-06-29T23:59:59');
+    const now = new Date();
+    const diff = deadline - now;
+    if (diff <= 0) return;
+    const d = Math.floor(diff / 86400000);
+    document.title = `AI Day 2026 — 距截止還有 ${d} 天`;
+  }
+  updateCountdown();
+</script>
+
+</body>
+</html>
