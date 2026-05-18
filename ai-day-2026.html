@@ -321,7 +321,7 @@
     }
 
     /* ── Section common ────────────────────────────────────── */
-    section { padding: 90px 24px; }
+    section { padding: 64px 24px; }
     .container { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
@@ -502,6 +502,70 @@
       border-radius: 50%;
       background: var(--teal);
       flex-shrink: 0;
+    }
+
+    /* ── Organizers ────────────────────────────────────────── */
+    #organizers { background: var(--card); }
+
+    .organizer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .organizer-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,168,160,0.15);
+      box-shadow: 0 6px 28px rgba(0,100,100,0.07);
+      background: var(--white);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .organizer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 44px rgba(0,100,100,0.13);
+    }
+    .organizer-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: linear-gradient(135deg, #C8E6E5, #D8EEF8);
+    }
+    .organizer-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .organizer-card:hover .organizer-photo img {
+      transform: scale(1.04);
+    }
+    .organizer-info {
+      padding: 20px 22px 24px;
+      border-top: 3px solid var(--teal);
+    }
+    .organizer-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .organizer-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .organizer-unit {
+      font-size: 0.73rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+    @media (max-width: 640px) {
+      .organizer-grid { grid-template-columns: 1fr; max-width: 340px; }
     }
 
     /* ── Speaker ───────────────────────────────────────────── */
@@ -1423,8 +1487,8 @@
       <strong>立夫教學大樓 105 教室</strong>
     </div>
     <div class="hero-meta-item">
-      <span class="meta-label">ABSTRACT DEADLINE</span>
-      <strong>6 月 19 日（五）</strong>
+      <span class="meta-label" id="hero-deadline-label">ABSTRACT DEADLINE</span>
+      <strong id="hero-deadline-date">6 月 19 日（五）</strong>
     </div>
   </div>
 
@@ -1516,11 +1580,58 @@
   </div>
 </section>
 
+<!-- ══ ORGANIZERS ════════════════════════════════════════════ -->
+<section id="organizers">
+  <div class="container corner-deco">
+    <div class="section-head reveal">
+      <span class="section-label">Committee</span>
+      <h2 class="section-title">主辦 <span class="accent">委員</span></h2>
+    </div>
+
+    <div class="organizer-grid">
+
+      <div class="organizer-card reveal">
+        <div class="organizer-photo">
+          <img src="./assets/yi-bing-lin.png" alt="林一平">
+        </div>
+        <div class="organizer-info">
+          <div class="organizer-name">林一平 講座教授</div>
+          <div class="organizer-title">中國醫藥大學 醫療資訊學系 顧問</div>
+          <div class="organizer-unit">前科技部代理部長</div>
+        </div>
+      </div>
+
+      <div class="organizer-card reveal" style="transition-delay:0.1s">
+        <div class="organizer-photo">
+          <img src="./assets/po-ren-hsueh.jpg" alt="薛博仁">
+        </div>
+        <div class="organizer-info">
+          <div class="organizer-name">薛博仁 副校長</div>
+          <div class="organizer-title">中國醫藥大學 副校長</div>
+          <div class="organizer-unit">中國醫藥大學附設醫院 檢驗醫學中心 院長</div>
+        </div>
+      </div>
+
+      <div class="organizer-card reveal" style="transition-delay:0.2s">
+        <div class="organizer-photo">
+          <img src="./assets/instructor-chin-chi-kuo.jpg" alt="郭錦輯">
+        </div>
+        <div class="organizer-info">
+          <div class="organizer-name">郭錦輯 副院長</div>
+          <div class="organizer-title">中國醫藥大學 醫學院 副院長</div>
+          <div class="organizer-unit">中國醫藥大學附設醫院 大數據中心 副院長</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══ SPEAKER ═══════════════════════════════════════════════ -->
 <section id="speaker">
   <div class="container corner-deco">
     <div class="section-head reveal">
-      <span class="section-label">Keynote Speaker</span>
+      <span class="section-label">Keynote</span>
       <h2 class="section-title">大師 <span class="accent">講堂</span></h2>
       <p class="section-desc">邀請業界領袖分享最前沿的 AI 在醫療生態系中的實踐與展望。</p>
     </div>
@@ -1540,6 +1651,7 @@
     </div>
 
     <!-- 開場致詞 -->
+    <!-- 
     <div class="faculty-heading reveal">
       <span>Opening Remarks</span>
       <h3>開場致詞</h3>
@@ -1559,7 +1671,7 @@
         <div class="host-edu">美國約翰霍普金斯大學 流行病學博士</div>
       </div>
     </div>
-
+    -->
     <!-- 學術分享師資 -->
     <div class="faculty-heading reveal">
       <span>Academic Sharing</span>
@@ -2053,6 +2165,20 @@
   document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
+
+  /* ── Dynamic Hero Deadline ──────────────────── */
+  (function() {
+    const now = new Date();
+    const abstractEnd  = new Date('2026-06-19T23:59:59');
+    const attendEnd    = new Date('2026-06-29T23:59:59');
+    const label = document.getElementById('hero-deadline-label');
+    const date  = document.getElementById('hero-deadline-date');
+    if (!label || !date) return;
+    if (now > abstractEnd && now <= attendEnd) {
+      label.textContent = 'REGISTRATION DEADLINE';
+      date.textContent  = '6 月 29 日（一）';
+    }
+  })();
 
   /* ── Countdown (optional display) ───────────── */
   function updateCountdown() {
