@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Day 2026 — 智慧醫療創新論壇暨海報競賽</title>
+  <title>AI Day 2026 — Forum on Intelligent Healthcare Innovation & Poster Competition</title>
   <link rel="icon" href="./assets/icon-cmu.png" type="image/png">
   <style>
     /* ── Reset & Variables ─────────────────────────────────── */
@@ -98,16 +98,6 @@
     .nav-links a:hover { color: var(--cyan); }
     .nav-links a:hover::after { width: 100%; }
 
-    .nav-lang {
-      color: rgba(255,255,255,0.5) !important;
-      font-size: 0.8rem !important;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 4px;
-      padding: 4px 10px;
-    }
-    .nav-lang:hover { color: var(--cyan) !important; border-color: var(--cyan); }
-    .nav-lang::after { display: none !important; }
-
     .nav-btn {
       background: var(--teal);
       color: var(--white) !important;
@@ -118,6 +108,16 @@
     }
     .nav-btn:hover { background: var(--cyan) !important; color: var(--navy) !important; transform: translateY(-1px); }
     .nav-btn::after { display: none !important; }
+
+    .nav-lang {
+      color: rgba(255,255,255,0.5) !important;
+      font-size: 0.8rem !important;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      padding: 4px 10px;
+    }
+    .nav-lang:hover { color: var(--cyan) !important; border-color: var(--cyan); }
+    .nav-lang::after { display: none !important; }
 
     /* ── Hero ──────────────────────────────────────────────── */
     #hero {
@@ -135,7 +135,6 @@
       overflow: hidden;
     }
 
-    /* Animated grid bg */
     #hero::before {
       content: '';
       position: absolute;
@@ -152,7 +151,6 @@
       100% { background-position: 40px 40px; }
     }
 
-    /* Glowing orbs */
     .orb {
       position: absolute;
       border-radius: 50%;
@@ -348,18 +346,12 @@
     }
     .section-head { margin-bottom: 56px; }
 
-    /* ── Section tech decorations ──────────────────────────── */
-
-    /* 淡點陣底紋（白色區塊） */
     .dot-bg {
       background-image: radial-gradient(circle, rgba(0,168,160,0.1) 1px, transparent 1px);
       background-size: 28px 28px;
     }
 
-    /* 容器角落折線裝飾 */
-    .corner-deco {
-      position: relative;
-    }
+    .corner-deco { position: relative; }
     .corner-deco::before,
     .corner-deco::after {
       content: '';
@@ -380,7 +372,6 @@
       border-right: 2px solid var(--teal);
     }
 
-    /* Awards 深色區塊幾何線條 */
     #awards {
       position: relative;
       overflow: hidden;
@@ -433,7 +424,7 @@
       font-weight: 800;
       color: var(--teal);
       letter-spacing: 0.5px;
-      min-width: 32px;
+      min-width: 60px;
       flex-shrink: 0;
     }
 
@@ -443,7 +434,6 @@
       line-height: 1.6;
     }
 
-    /* Deadline card (right col) */
     .deadline-card {
       background: var(--white);
       border-radius: 14px;
@@ -464,9 +454,7 @@
       text-transform: uppercase;
     }
 
-    .deadline-card-body {
-      padding: 28px 28px 32px;
-    }
+    .deadline-card-body { padding: 28px 28px 32px; }
 
     .deadline-card-date {
       font-size: 1.75rem;
@@ -523,9 +511,6 @@
       border-radius: 50%;
       background: transparent;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--white);
       flex-shrink: 0;
       overflow: hidden;
     }
@@ -557,7 +542,7 @@
     .speaker-topic p { color: #5A7290; font-size: 0.88rem; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
     .speaker-topic h4 { color: var(--navy); font-size: 1rem; font-weight: 700; }
 
-    /* ── Host Card (開場致詞) ──────────────────────────────── */
+    /* ── Host Card ─────────────────────────────────────────── */
     .host-card {
       display: flex;
       align-items: center;
@@ -687,10 +672,7 @@
       display: block;
     }
 
-    .faculty-info {
-      flex: 1;
-      min-width: 0;
-    }
+    .faculty-info { flex: 1; min-width: 0; }
     .faculty-name {
       font-size: 1rem;
       font-weight: 800;
@@ -720,12 +702,8 @@
       background: linear-gradient(transparent, var(--card));
       transition: opacity 0.3s;
     }
-    .faculty-card:hover .faculty-topic {
-      max-height: 12em;
-    }
-    .faculty-card:hover .faculty-topic::after {
-      opacity: 0;
-    }
+    .faculty-card:hover .faculty-topic { max-height: 12em; }
+    .faculty-card:hover .faculty-topic::after { opacity: 0; }
 
     @media (max-width: 700px) {
       .faculty-grid { grid-template-columns: 1fr; }
@@ -836,7 +814,6 @@
       color: var(--teal);
       line-height: 1;
       margin-bottom: 14px;
-      font-variant-numeric: tabular-nums;
     }
     .comp-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
     .comp-card p  { font-size: 0.88rem; color: #5A7290; line-height: 1.65; }
@@ -873,19 +850,12 @@
       color: var(--white);
       border-color: var(--teal);
     }
-    /* 未選中的 tab 邊框脈衝，提示可點擊 */
     .sub-tab:not(.active).pulsing {
       animation: tabPulse 1.8s ease-in-out infinite;
     }
     @keyframes tabPulse {
-      0%, 100% {
-        border-color: rgba(0,168,160,0.25);
-        box-shadow: none;
-      }
-      50% {
-        border-color: var(--teal);
-        box-shadow: 0 0 0 4px rgba(0,168,160,0.15);
-      }
+      0%, 100% { border-color: rgba(0,168,160,0.25); box-shadow: none; }
+      50%       { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(0,168,160,0.15); }
     }
 
     .sub-content { display: none; }
@@ -1242,18 +1212,9 @@
       transition: opacity 0.3s, transform 0.3s, background 0.2s;
       pointer-events: none;
     }
-    #back-to-top.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    #back-to-top:hover {
-      background: var(--cyan);
-    }
-    #back-to-top svg {
-      width: 20px;
-      height: 20px;
-    }
+    #back-to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    #back-to-top:hover { background: var(--cyan); }
+    #back-to-top svg { width: 20px; height: 20px; }
 
     /* ── Hamburger ─────────────────────────────────────────── */
     .nav-hamburger {
@@ -1281,12 +1242,10 @@
       transition: transform 0.3s, opacity 0.3s, width 0.3s;
       transform-origin: center;
     }
-    /* 開啟時三條線變 X */
     .nav-hamburger.open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.open .bar:nth-child(2) { opacity: 0; width: 0; }
     .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile drawer */
     .nav-mobile-menu {
       display: none;
       position: fixed;
@@ -1302,16 +1261,8 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
       pointer-events: none;
     }
-    .nav-mobile-menu.open {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .nav-mobile-menu ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-    }
+    .nav-mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .nav-mobile-menu ul { list-style: none; display: flex; flex-direction: column; }
     .nav-mobile-menu ul li a {
       display: block;
       padding: 14px 28px;
@@ -1357,25 +1308,25 @@
 <nav id="navbar">
   <a class="nav-logo" href="#hero">
     <img src="./assets/icon-cmu.png"
-         alt="中國醫藥大學"
+         alt="China Medical University"
          class="logo-cmu"
          onerror="this.style.display='none'">
     <img src="./assets/logo-dbmi.png"
-         alt="中國醫藥大學醫療資訊學系"
+         alt="Dept. of Biomedical Informatics"
          onerror="this.style.display='none'">
   </a>
   <ul class="nav-links">
-    <li><a href="#about">關於活動</a></li>
-    <li><a href="#speaker">大師講堂</a></li>
-    <li><a href="#agenda">議程</a></li>
-    <li><a href="#competition">競賽說明</a></li>
-    <li><a href="#submission">繳交規定</a></li>
-    <li><a href="#awards">競賽獎勵</a></li>
-    <li><a href="#transport">交通指引</a></li>
-    <li><a href="ai-day-2026-en.html" class="nav-lang">EN</a></li>
-    <li><a href="#register" class="nav-btn">立即報名</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#speaker">Keynote</a></li>
+    <li><a href="#agenda">Schedule</a></li>
+    <li><a href="#competition">Competition</a></li>
+    <li><a href="#submission">Submission</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#transport">Venue</a></li>
+    <li><a href="ai-day-2026.html" class="nav-lang">中文</a></li>
+    <li><a href="#register" class="nav-btn">Register Now</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
@@ -1383,7 +1334,7 @@
 </nav>
 
 <!-- Back to Top -->
-<button id="back-to-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="18 15 12 9 6 15"/>
   </svg>
@@ -1392,15 +1343,15 @@
 <!-- Mobile drawer -->
 <div class="nav-mobile-menu" id="mobileMenu">
   <ul>
-    <li><a href="#about"      class="mobile-link">關於活動</a></li>
-    <li><a href="#speaker"    class="mobile-link">大師講堂</a></li>
-    <li><a href="#agenda"     class="mobile-link">議程</a></li>
-    <li><a href="#competition" class="mobile-link">競賽說明</a></li>
-    <li><a href="#submission" class="mobile-link">繳交規定</a></li>
-    <li><a href="#awards"     class="mobile-link">競賽獎勵</a></li>
-    <li><a href="#transport"       class="mobile-link">交通指引</a></li>
-    <li><a href="ai-day-2026-en.html" class="mobile-link">English</a></li>
-    <li><a href="#register"        class="mobile-link">立即報名</a></li>
+    <li><a href="#about"       class="mobile-link">About</a></li>
+    <li><a href="#speaker"     class="mobile-link">Keynote</a></li>
+    <li><a href="#agenda"      class="mobile-link">Schedule</a></li>
+    <li><a href="#competition" class="mobile-link">Competition</a></li>
+    <li><a href="#submission"  class="mobile-link">Submission</a></li>
+    <li><a href="#awards"      class="mobile-link">Awards</a></li>
+    <li><a href="#transport"   class="mobile-link">Venue</a></li>
+    <li><a href="ai-day-2026.html" class="mobile-link">中文</a></li>
+    <li><a href="#register"    class="mobile-link">Register Now</a></li>
   </ul>
 </div>
 
@@ -1411,26 +1362,26 @@
   <div class="orb orb-3"></div>
 
   <h1 class="hero-title"><span class="ai">AI</span> Day<br>2026</h1>
-  <p class="hero-subtitle">智慧醫療創新論壇暨海報競賽</p>
+  <p class="hero-subtitle">Forum on Intelligent Healthcare Innovation &amp; Poster Competition</p>
 
   <div class="hero-meta">
     <div class="hero-meta-item">
       <span class="meta-label">Date</span>
-      <strong>2026 年 7 月 4 日（六）<br>09:00 – 16:00</strong>
+      <strong>Saturday, July 4, 2026<br>09:00 – 16:00</strong>
     </div>
     <div class="hero-meta-item">
       <span class="meta-label">Venue</span>
-      <strong>立夫教學大樓 105 教室</strong>
+      <strong>Li-Fu Teaching Building, Room 105</strong>
     </div>
     <div class="hero-meta-item">
-      <span class="meta-label">ABSTRACT DEADLINE</span>
-      <strong>6 月 19 日（五）</strong>
+      <span class="meta-label">Abstract Deadline</span>
+      <strong>June 19 (Fri)</strong>
     </div>
   </div>
 
   <div class="hero-cta">
-    <a href="#register" class="btn-primary">立即報名</a>
-    <a href="#agenda" class="btn-secondary">查看議程 ↓</a>
+    <a href="#register" class="btn-primary">Register Now</a>
+    <a href="#agenda" class="btn-secondary">View Schedule ↓</a>
   </div>
 
   <div class="hero-scroll">
@@ -1446,70 +1397,70 @@
   <div class="container corner-deco">
     <div class="section-head reveal">
       <span class="section-label">About</span>
-      <h2 class="section-title">關於 <span class="accent">AI Day</span></h2>
+      <h2 class="section-title">About <span class="accent">AI Day</span></h2>
       <p class="section-desc">
-        旨在鼓勵本校學生與院內同仁參與醫療資訊領域的基礎和應用研究，培養學術發表能力，推動科學技術的進步與創新。
+        Encouraging students and hospital staff to engage in medical informatics research, foster academic presentation skills, and drive innovation in science and technology.
       </p>
     </div>
 
     <div class="about-two-col">
 
-      <!-- 左欄：說明 + 關鍵資訊 -->
+      <!-- Left: Description + Key Facts -->
       <div class="reveal">
         <p class="about-intro">
-          「2026 AI DAY」為中國醫藥大學醫療資訊學系主辦的第二屆年度競賽盛會，旨在鼓勵本校學生積極參與醫療資訊領域的基礎與應用研究，培養學術發表能力，並推動科學技術的進步與創新。本活動以英文為主要語言，邀請醫療資訊相關研究背景師資擔任評審，是展現研究成果、拓展交流的最佳舞台。
+          AI Day 2026 is the second annual event organized by the Department of Biomedical Informatics (DBMI) at China Medical University (CMU). It aims to inspire students to actively participate in basic and applied research in medical informatics, cultivate academic presentation skills, and advance scientific and technological innovation. Conducted primarily in English with faculty judges from medical informatics backgrounds, AI Day is the ideal stage to showcase your research and expand your academic network.
         </p>
         <div class="fact-list">
           <div class="fact-item">
-            <span class="fact-label">主題</span>
-            <span class="fact-text">涵蓋所有醫療資訊相關之臨床與基礎研究</span>
+            <span class="fact-label">Theme</span>
+            <span class="fact-text">All clinical and basic research related to medical informatics</span>
           </div>
           <div class="fact-item">
-            <span class="fact-label">對象</span>
-            <span class="fact-text">中國醫藥大學大學生及碩博班研究生、中國醫藥大學附設醫院同仁</span>
+            <span class="fact-label">Eligible</span>
+            <span class="fact-text">CMU undergraduate and graduate students; China Medical University Hospital (CMUH) staff</span>
           </div>
           <div class="fact-item">
-            <span class="fact-label">競賽</span>
-            <span class="fact-text">大師講堂 ＋ 海報競賽 ＋ 英文口頭報告（擇優 2 組）</span>
+            <span class="fact-label">Program</span>
+            <span class="fact-text">Keynote + Poster Competition + Oral Presentation (top 2 selected)</span>
           </div>
           <div class="fact-item">
-            <span class="fact-label">獎勵</span>
-            <span class="fact-text">特優、優等及佳作，頒發獎狀及獎學金</span>
+            <span class="fact-label">Awards</span>
+            <span class="fact-text">Outstanding, Merit, and Honorable Mention — certificates and scholarships</span>
           </div>
         </div>
       </div>
 
-      <!-- 右欄：截止日期卡片 -->
+      <!-- Right: Deadline Card -->
       <div class="deadline-card reveal" style="transition-delay:0.15s">
-        <div class="deadline-card-header">收件截止時間</div>
+        <div class="deadline-card-header">Abstract Submission Deadline</div>
         <div class="deadline-card-body">
-          <div class="deadline-card-date">2026 年 6 月 19 日（五）</div>
-          <div class="deadline-card-sub">上傳至雲端（詳見報名連結）</div>
+          <div class="deadline-card-date">June 19, 2026 (Fri)</div>
+          <div class="deadline-card-sub">Upload via cloud storage (see registration link)</div>
           <ul class="deadline-notes">
-            <li>活動完全免費，歡迎踴躍投稿</li>
-            <li>評審由醫療資訊相關研究背景師資擔任</li>
-            <li>活動以英文為主要語言</li>
+            <li>Free to participate — all submissions welcome</li>
+            <li>Judged by faculty with medical informatics research backgrounds</li>
+            <li>English is the primary language of the event</li>
           </ul>
         </div>
       </div>
 
     </div>
 
-    <!-- 重要日程 -->
+    <!-- Key Dates -->
     <div class="milestone-row reveal">
       <div class="milestone-item">
-        <div class="milestone-label">投稿＋參展 截止</div>
-        <div class="milestone-date">6 月 19 日（五）</div>
+        <div class="milestone-label">Submit + Attend Deadline</div>
+        <div class="milestone-date">June 19 (Fri)</div>
       </div>
       <div class="milestone-arrow">—</div>
       <div class="milestone-item">
-        <div class="milestone-label">入選公告</div>
-        <div class="milestone-date">6 月 26 日（五）</div>
+        <div class="milestone-label">Selection Announcement</div>
+        <div class="milestone-date">June 26 (Fri)</div>
       </div>
       <div class="milestone-arrow">—</div>
       <div class="milestone-item">
-        <div class="milestone-label">僅參展 截止</div>
-        <div class="milestone-date">6 月 29 日（一）</div>
+        <div class="milestone-label">Attend-Only Deadline</div>
+        <div class="milestone-date">June 29 (Mon)</div>
       </div>
     </div>
 
@@ -1521,105 +1472,105 @@
   <div class="container corner-deco">
     <div class="section-head reveal">
       <span class="section-label">Keynote Speaker</span>
-      <h2 class="section-title">大師 <span class="accent">講堂</span></h2>
-      <p class="section-desc">邀請業界領袖分享最前沿的 AI 在醫療生態系中的實踐與展望。</p>
+      <h2 class="section-title">Keynote <span class="accent">Speaker</span></h2>
+      <p class="section-desc">Industry leaders share cutting-edge insights on AI in healthcare ecosystems.</p>
     </div>
 
     <div class="speaker-card reveal">
       <div class="speaker-avatar">
-        <img src="./assets/instructor-james-liu.png" alt="劉致宏 總監">
+        <img src="./assets/instructor-james-liu.png" alt="James Liu, Director">
       </div>
       <div class="speaker-info">
-        <h3>劉致宏 總監</h3>
-        <div class="speaker-org">台灣微軟 健康與醫療產業</div>
+        <h3>James Liu, Director</h3>
+        <div class="speaker-org">Microsoft Taiwan, Health &amp; Life Sciences</div>
         <div class="speaker-topic">
-          <p>演講主題</p>
-          <h4>打造 AI Native Hospital：從資料、雲端到醫療生態系的轉型藍圖</h4>
+          <p>Talk Topic</p>
+          <h4>Building an AI-Native Hospital: A Transformation Blueprint from Data and Cloud to Healthcare Ecosystems</h4>
         </div>
       </div>
     </div>
 
-    <!-- 開場致詞 -->
+    <!-- Opening Remarks -->
     <div class="faculty-heading reveal">
       <span>Opening Remarks</span>
-      <h3>開場致詞</h3>
+      <h3>Opening Address</h3>
     </div>
 
     <div class="host-card reveal">
       <div class="host-photo">
-        <img src="./assets/instructor-chin-chi-kuo.jpg" alt="郭錦輯">
+        <img src="./assets/instructor-chin-chi-kuo.jpg" alt="Chin-Chi Kuo">
       </div>
       <div class="host-info">
-        <div class="host-name">郭錦輯 主任</div>
+        <div class="host-name">Chin-Chi Kuo, Director</div>
         <div class="host-tags">
-          <span class="host-tag">醫療資訊學系 系主任</span>
-          <span class="host-tag">大數據中心 副院長</span>
-          <span class="host-tag">腎臟科 主治醫師</span>
+          <span class="host-tag">Chair, Dept. of Biomedical Informatics</span>
+          <span class="host-tag">Vice Director, Big Data Center</span>
+          <span class="host-tag">Attending Physician, Nephrology</span>
         </div>
-        <div class="host-edu">美國約翰霍普金斯大學 流行病學博士</div>
+        <div class="host-edu">Ph.D. in Epidemiology, Johns Hopkins University</div>
       </div>
     </div>
 
-    <!-- 學術分享師資 -->
+    <!-- Academic Sharing Faculty -->
     <div class="faculty-heading reveal">
       <span>Academic Sharing</span>
-      <h3>醫學 AI 研究主題分享</h3>
+      <h3>Medical AI Research Presentations</h3>
     </div>
 
     <div class="faculty-grid">
 
       <div class="faculty-card reveal" style="transition-delay:0s">
         <div class="faculty-photo">
-          <img src="./assets/instructor-feng-sheng-tsai.jpg" alt="蔡豐聲">
+          <img src="./assets/instructor-feng-sheng-tsai.jpg" alt="Feng-Sheng Tsai">
         </div>
         <div class="faculty-info">
-          <div class="faculty-name">蔡豐聲 老師</div>
-          <div class="faculty-unit">醫療資訊學系 副教授</div>
-          <div class="faculty-topic">自我監督學習在腦波尖波漣漪分類降躁的應用<br>Self-supervised learning reduces label noise in sharp wave ripple classification</div>
+          <div class="faculty-name">Feng-Sheng Tsai</div>
+          <div class="faculty-unit">Associate Professor, Dept. of Biomedical Informatics</div>
+          <div class="faculty-topic">Self-supervised learning reduces label noise in sharp wave ripple classification</div>
         </div>
       </div>
 
       <div class="faculty-card reveal" style="transition-delay:0.08s">
         <div class="faculty-photo">
-          <img src="./assets/instructor-li-xian-chen.jpg" alt="陳立先">
+          <img src="./assets/instructor-li-xian-chen.jpg" alt="Li-Xian Chen">
         </div>
         <div class="faculty-info">
-          <div class="faculty-name">陳立先 老師</div>
-          <div class="faculty-unit">醫療資訊系 助理教授</div>
-          <div class="faculty-topic">從計算思維到 AI 素養：學習如何在醫療資訊中與 AI 共同思考 <br>From Computational Thinking to AI Literacy: Learning How to Think With AI in Medical Informatics</div>
+          <div class="faculty-name">Li-Xian Chen</div>
+          <div class="faculty-unit">Assistant Professor, Dept. of Biomedical Informatics</div>
+          <div class="faculty-topic">From Computational Thinking to AI Literacy: Learning How to Think With AI in Medical Informatics</div>
         </div>
       </div>
 
       <div class="faculty-card reveal" style="transition-delay:0.16s">
         <div class="faculty-photo">
-          <img src="./assets/instructor-hsiu-yin-chiang.jpg" alt="姜秀穎">
+          <img src="./assets/instructor-hsiu-yin-chiang.jpg" alt="Hsiu-Yin Chiang">
         </div>
         <div class="faculty-info">
-          <div class="faculty-name">姜秀穎 老師</div>
-          <div class="faculty-unit">大數據中心 副研究員</div>
-          <div class="faculty-topic">即時腎臟風險雷達：以數據智能驅動的急性腎損傷防護網<br>Real-Time Kidney Risk Radar: A Data Intelligence–Driven Acute Kidney Injury Care System</div>
+          <div class="faculty-name">Hsiu-Yin Chiang</div>
+          <div class="faculty-unit">Associate Researcher, Big Data Center</div>
+          <div class="faculty-topic">Real-Time Kidney Risk Radar: A Data Intelligence–Driven Acute Kidney Injury Care System</div>
         </div>
       </div>
 
       <div class="faculty-card reveal" style="transition-delay:0.24s">
         <div class="faculty-photo">
-          <img src="./assets/instructor-yu-ting-lin.png" alt="林育廷">
+          <img src="./assets/instructor-yu-ting-lin.png" alt="Yu-Ting Lin">
         </div>
         <div class="faculty-info">
-          <div class="faculty-name">林育廷 老師</div>
-          <div class="faculty-unit">醫療資訊系 助理教授</div>
-          <div class="faculty-topic">從數據到行動：海雲平台與 AI 醫療落地實踐<br>From Data to Action:The iHi Platform for Real-World AI in Healthcare</div>
+          <div class="faculty-name">Yu-Ting Lin</div>
+          <div class="faculty-unit">Assistant Professor, Dept. of Biomedical Informatics</div>
+          <div class="faculty-topic">From Data to Action: The iHi Platform for Real-World AI in Healthcare</div>
         </div>
       </div>
 
       <div class="faculty-card reveal" style="transition-delay:0.32s">
         <div class="faculty-photo">
-          <img src="./assets/instructor-hung-lin-chen.jpg" alt="陳鴻霖">
+          <img src="./assets/instructor-hung-lin-chen.jpg" alt="Hung-Lin Chen">
         </div>
         <div class="faculty-info">
-          <div class="faculty-name">陳鴻霖 老師</div>
-          <div class="faculty-unit">醫療資訊系 助理教授</div>
-          <div class="faculty-topic">腎臟老化時鐘：從 基因 到慢性腎病臨床預測的個人化醫療<br>The Kidney Aging Clock: Personalized Medicine from Genetics to Clinical Prediction of Chronic Kidney Disease</div>
+          <div class="faculty-name">Hung-Lin Chen</div>
+          <div class="faculty-unit">Assistant Professor, Dept. of Biomedical Informatics</div>
+          <div class="faculty-topic">The Kidney Aging Clock: Personalized Medicine from Genetics to Clinical Prediction of Chronic Kidney Disease</div>
         </div>
       </div>
 
@@ -1632,8 +1583,8 @@
   <div class="container corner-deco">
     <div class="section-head reveal">
       <span class="section-label">Schedule</span>
-      <h2 class="section-title">活動 <span class="accent">議程</span></h2>
-      <p class="section-desc">2026 年 7 月 4 日（六）全日議程</p>
+      <h2 class="section-title">Event <span class="accent">Schedule</span></h2>
+      <p class="section-desc">Full-day program — Saturday, July 4, 2026</p>
     </div>
 
     <div class="timeline">
@@ -1642,9 +1593,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">09:00 – 09:25</div>
         <div class="timeline-content">
-          <span class="agenda-tag break">報到</span>
+          <span class="agenda-tag break">Check-in</span>
           <h4>Registration</h4>
-          <p>現場報到、領取資料</p>
+          <p>On-site check-in and material collection</p>
         </div>
       </div>
 
@@ -1653,7 +1604,7 @@
         <div class="timeline-time">09:25 – 09:30</div>
         <div class="timeline-content">
           <h4>Opening Remarks</h4>
-          <p>開場致詞</p>
+          <p>Chair, Dept. of Biomedical Informatics</p>
         </div>
       </div>
 
@@ -1661,9 +1612,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">09:30 – 10:20</div>
         <div class="timeline-content">
-          <span class="agenda-tag">大師講堂 Keynote</span>
-          <h4>台灣微軟 劉致宏 總監</h4>
-          <p>打造 AI Native Hospital：從資料、雲端到醫療生態系的轉型藍圖</p>
+          <span class="agenda-tag">Keynote</span>
+          <h4>James Liu, Director — Microsoft Taiwan</h4>
+          <p>Building an AI-Native Hospital: A Transformation Blueprint from Data and Cloud to Healthcare Ecosystems</p>
         </div>
       </div>
 
@@ -1671,9 +1622,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">10:20 – 10:30</div>
         <div class="timeline-content">
-          <span class="agenda-tag break">茶點</span>
+          <span class="agenda-tag break">Break</span>
           <h4>Coffee Break</h4>
-          <p>上午場休息</p>
+          <p>Morning refreshments</p>
         </div>
       </div>
 
@@ -1681,9 +1632,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">10:30 – 12:00</div>
         <div class="timeline-content">
-          <span class="agenda-tag">學術分享</span>
-          <h4>醫學 AI 研究主題分享</h4>
-          <p>中醫大醫資系師資主講，分享醫療資訊最新研究成果</p>
+          <span class="agenda-tag">Academic Sharing</span>
+          <h4>Medical AI Research Presentations</h4>
+          <p>Faculty from DBMI at CMU share their latest research in medical informatics</p>
         </div>
       </div>
 
@@ -1691,9 +1642,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">12:10 – 13:30</div>
         <div class="timeline-content">
-          <span class="agenda-tag break">餐敘</span>
+          <span class="agenda-tag break">Lunch</span>
           <h4>Lunch &amp; Networking</h4>
-          <p>午餐暨中場休息</p>
+          <p>Lunch and midday networking break</p>
         </div>
       </div>
 
@@ -1701,9 +1652,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">13:30 – 15:20</div>
         <div class="timeline-content">
-          <span class="agenda-tag poster">海報競賽</span>
-          <h4>智慧醫療創新海報競賽(特優英文口頭報告)</h4>
-          <p>各參賽者展示研究海報，由評審進行問答評分</p>
+          <span class="agenda-tag poster">Poster Competition</span>
+          <h4>Intelligent Healthcare Innovation Poster Competition</h4>
+          <p>Participants present research posters; judges conduct Q&amp;A scoring (top winners deliver oral presentations in English)</p>
         </div>
       </div>
 
@@ -1711,9 +1662,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">15:20 – 15:30</div>
         <div class="timeline-content">
-          <span class="agenda-tag break">茶點</span>
+          <span class="agenda-tag break">Break</span>
           <h4>Coffee Break</h4>
-          <p>下午場休息</p>
+          <p>Afternoon refreshments</p>
         </div>
       </div>
 
@@ -1721,9 +1672,9 @@
         <div class="timeline-dot"></div>
         <div class="timeline-time">15:30 – 16:00</div>
         <div class="timeline-content">
-          <span class="agenda-tag">頒獎</span>
+          <span class="agenda-tag">Awards</span>
           <h4>Award Ceremony &amp; Closing</h4>
-          <p>頒獎典禮暨賦歸</p>
+          <p>Prize presentation and closing remarks</p>
         </div>
       </div>
 
@@ -1736,24 +1687,24 @@
   <div class="container corner-deco">
     <div class="section-head reveal">
       <span class="section-label">Competition</span>
-      <h2 class="section-title">競賽 <span class="accent">說明</span></h2>
+      <h2 class="section-title">Competition <span class="accent">Details</span></h2>
     </div>
 
     <div class="comp-grid">
       <div class="comp-card reveal">
         <div class="comp-num">01</div>
-        <h3>競賽主題</h3>
-        <p>涵蓋所有醫療資訊相關之臨床與基礎研究，包含但不限於 AI 醫療影像分析、電子健康紀錄、智慧診斷輔助系統等。</p>
+        <h3>Theme</h3>
+        <p>Covers all clinical and basic research related to medical informatics, including but not limited to AI medical image analysis, electronic health records, and intelligent diagnostic assistance systems.</p>
       </div>
       <div class="comp-card reveal" style="transition-delay:0.1s">
         <div class="comp-num">02</div>
-        <h3>競賽方式</h3>
-        <p>以英文為主，參賽者於展示區域張貼計畫海報，由具醫療資訊研究背景之本校老師進行口頭問答評分。</p>
+        <h3>Format</h3>
+        <p>Conducted primarily in English. Participants post research posters in the exhibition area; CMU faculty with medical informatics backgrounds conduct oral Q&amp;A scoring.</p>
       </div>
       <div class="comp-card reveal" style="transition-delay:0.2s">
         <div class="comp-num">03</div>
-        <h3>評分標準</h3>
-        <p>評分依據海報內容完整性、研究創新性、AI 應用深度、版面清晰度及問答表現等多個面向綜合評分。</p>
+        <h3>Evaluation Criteria</h3>
+        <p>Scoring is based on content completeness, research innovation, depth of AI application, layout clarity, and Q&amp;A performance.</p>
       </div>
     </div>
   </div>
@@ -1764,36 +1715,36 @@
   <div class="container corner-deco">
     <div class="section-head reveal">
       <span class="section-label">Submission</span>
-      <h2 class="section-title">繳交 <span class="accent">規定</span></h2>
-      <p class="section-desc">請於 6 月 19 日（五）前完成資料上傳；入選結果將於 6 月 26 日（五）公告。</p>
+      <h2 class="section-title">Submission <span class="accent">Guidelines</span></h2>
+      <p class="section-desc">Please complete your submission by Friday, June 19; selection results will be announced on Friday, June 26.</p>
     </div>
 
     <div class="sub-tabs">
-      <button class="sub-tab active" onclick="switchTab('abstract', this)">摘要 Abstract</button>
-      <button class="sub-tab" onclick="switchTab('poster', this)">海報 Poster</button>
+      <button class="sub-tab active" onclick="switchTab('abstract', this)">Abstract</button>
+      <button class="sub-tab" onclick="switchTab('poster', this)">Poster</button>
     </div>
 
     <div id="tab-abstract" class="sub-content active">
       <div class="sub-block reveal">
-        <h3>摘要撰寫規範</h3>
+        <h3>Abstract Guidelines</h3>
         <ul class="sub-list">
-          <li>內容以英文為主，包含標題、作者及單位、摘要本文、關鍵字詞</li>
-          <li>使用電腦打字，字級 12 點、1.5 倍行距</li>
-          <li>英文摘要約 250 字</li>
-          <li>自訂關鍵字詞 3 至 5 個</li>
+          <li>Content primarily in English; must include title, authors and affiliations, abstract body, and keywords</li>
+          <li>Typed; 12pt font, 1.5 line spacing</li>
+          <li>English abstract: approximately 250 words</li>
+          <li>3 to 5 custom keywords</li>
         </ul>
       </div>
     </div>
 
     <div id="tab-poster" class="sub-content">
       <div class="sub-block reveal">
-        <h3>海報製作規範</h3>
+        <h3>Poster Guidelines</h3>
         <ul class="sub-list">
-          <li>壁報尺寸：84.1 cm（寬）× 118.9 cm（高），A0 規格；上下請各留 2 公分空白</li>
-          <li>內容以英文為主，需包含標題、作者及單位、背景介紹、研究目標、AI 應用、結論、參考文獻</li>
-          <li>圖表數量不限，注意版面安排、圖片清晰度及可讀性</li>
-          <li>參賽人須自行列印海報，請注意學術倫理及版權</li>
-          <li>不得直接翻譯或抄襲他人之圖表、論文或著作；如引用他人資料，請清楚標明來源</li>
+          <li>Dimensions: 84.1 cm (W) × 118.9 cm (H), A0 size; leave a 2 cm margin at top and bottom</li>
+          <li>Content primarily in English; must include title, authors and affiliations, background, research objectives, AI application, conclusions, and references</li>
+          <li>No limit on figures or tables; pay attention to layout, image clarity, and readability</li>
+          <li>Participants must print their own posters; please observe academic ethics and copyright regulations</li>
+          <li>Do not directly translate or plagiarize others' figures, papers, or works; if citing others' materials, clearly indicate the source</li>
         </ul>
       </div>
     </div>
@@ -1805,30 +1756,30 @@
   <div class="container corner-deco">
     <div class="section-head reveal">
       <span class="section-label">Awards</span>
-      <h2 class="section-title">競賽 <span class="accent" style="color:var(--cyan)">獎勵</span></h2>
+      <h2 class="section-title">Competition <span class="accent" style="color:var(--cyan)">Awards</span></h2>
       <p class="section-desc" style="color:rgba(255,255,255,0.55)">
-        獎狀及獎學金依名次頒發，總獎金 19,000 元。
+        Certificates and scholarships awarded by rank; total prize pool: NTD 19,000.
       </p>
     </div>
 
     <div class="awards-grid">
       <div class="award-card gold reveal">
-        <span class="award-medal">特優</span>
-        <div class="award-title">2,500 元</div>
-        <div class="award-subtitle">獎狀 ＋ 獎學金</div>
-        <div class="award-count">2 位</div>
+        <span class="award-medal">Outstanding</span>
+        <div class="award-title">NTD 2,500</div>
+        <div class="award-subtitle">Certificate + Scholarship</div>
+        <div class="award-count">2 Winners</div>
       </div>
       <div class="award-card silver reveal" style="transition-delay:0.1s">
-        <span class="award-medal">優等</span>
-        <div class="award-title">1,500 元</div>
-        <div class="award-subtitle">獎狀 ＋ 獎學金</div>
-        <div class="award-count">6 位</div>
+        <span class="award-medal">Merit</span>
+        <div class="award-title">NTD 1,500</div>
+        <div class="award-subtitle">Certificate + Scholarship</div>
+        <div class="award-count">6 Winners</div>
       </div>
       <div class="award-card bronze reveal" style="transition-delay:0.2s">
-        <span class="award-medal">佳作</span>
-        <div class="award-title">500 元</div>
-        <div class="award-subtitle">獎狀 ＋ 獎學金</div>
-        <div class="award-count">10 位</div>
+        <span class="award-medal">Honorable Mention</span>
+        <div class="award-title">NTD 500</div>
+        <div class="award-subtitle">Certificate + Scholarship</div>
+        <div class="award-count">10 Winners</div>
       </div>
     </div>
   </div>
@@ -1838,21 +1789,20 @@
 <section id="register">
   <div class="container corner-deco">
     <div class="register-box reveal">
-      <h2>立即報名</h2>
+      <h2>Register Now</h2>
       <p>
-        歡迎本校大學生、碩博班研究生及中國醫藥大學附設醫院同仁踴躍報名，<br>
-        截止日期 <strong>2026 年 6 月 19 日（五）</strong>，名額有限，請把握機會！
+        Open to all CMU undergraduate and graduate students, as well as CMUH staff.<br>
+        Spots are limited — <strong>don't miss your chance!</strong>
       </p>
-      <!-- 請將下方 href 替換為實際的 Google 表單連結 -->
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_B1edFqfsBzDCc6rCqdHd1yYJkha-BRU454b50B0lUepfOg/viewform?usp=header" target="_blank" class="btn-primary" style="font-size:1.1rem; padding:16px 48px;">
-        前往 Google 表單報名
+        Register via Google Form
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       <div class="register-deadlines">
-        <span class="reg-deadline-tag">投稿＋參展｜截止 6/19（五）</span>
-        <span class="reg-deadline-tag audience">僅參展｜截止 6/29（一）</span>
+        <span class="reg-deadline-tag">Submit + Attend | Deadline: June 19 (Fri)</span>
+        <span class="reg-deadline-tag audience">Attend Only | Deadline: June 29 (Mon)</span>
       </div>
-      <p class="register-note">如有問題請聯繫醫療資訊學系辦公室</p>
+      <p class="register-note">For inquiries, please contact the DBMI Office</p>
     </div>
   </div>
 </section>
@@ -1862,62 +1812,62 @@
   <div class="container corner-deco">
     <div class="section-head reveal">
       <span class="section-label">Venue &amp; Transport</span>
-      <h2 class="section-title">交通 <span class="accent">指引</span></h2>
-      <p class="section-desc">活動地點位於中國醫藥大學英才校區，以下提供各種交通方式參考。</p>
+      <h2 class="section-title">Getting <span class="accent">Here</span></h2>
+      <p class="section-desc">The event is held at the Yingcai Campus of China Medical University. Transportation options are listed below.</p>
     </div>
 
     <div class="transport-grid">
 
-      <!-- 左欄：文字資訊 -->
+      <!-- Left: Text Info -->
       <div class="transport-info reveal">
 
         <div class="transport-address">
-          <strong>活動地點</strong><br>
-          立夫教學大樓 105 教室<br>
-          <span style="color:#5A7290">404 台中市北區學士路 91 號（中國醫藥大學英才校區）</span>
+          <strong>Venue</strong><br>
+          Room 105, Li-Fu Teaching Building<br>
+          <span style="color:#5A7290">No. 91, Xueshi Rd, North Dist., Taichung City 404 (CMU Yingcai Campus)</span>
         </div>
 
-        <h3>大眾運輸</h3>
+        <h3>Public Transit</h3>
         <ul>
           <li>
-            <span><strong>高鐵台中站（烏日）</strong>：搭統聯 159 號公車，於「中山堂」站下車，步行 1–2 分鐘，車程約 40 分鐘</span>
+            <span><strong>THSR Taichung Station (Wuri)</strong>: Take Uniline Bus No. 159, alight at "Zhongshan Hall" stop; ~1–2 min walk. Journey ~40 min.</span>
           </li>
           <li>
-            <span><strong>台中火車站</strong>：搭統聯 61 號公車，於「中國醫藥大學」站下車，步行 1–2 分鐘</span>
+            <span><strong>Taichung Train Station</strong>: Take Uniline Bus No. 61, alight at "China Medical University" stop; ~1–2 min walk.</span>
           </li>
           <li>
-            <span><strong>其他路線</strong>：統聯 25、77、18 號，台中客運 35、131 號，東南客運 67 號，均可於「中國醫藥大學」站下車</span>
+            <span><strong>Other routes</strong>: Uniline Nos. 25, 77, 18; Taichung Bus Nos. 35, 131; Southeast Bus No. 67 — all stop at "China Medical University."</span>
           </li>
         </ul>
 
-        <h3>自行開車</h3>
+        <h3>By Car</h3>
         <ul>
-          <li><span><strong>國道 1 號南下</strong>：大雅交流道（174.2K）下，經中清路→大雅路左轉英才路，與學士路交叉口即到</span></li>
-          <li><span><strong>國道 1 號北上</strong>：台中交流道（178.6K）下，經中港路左轉英才路，與學士路交叉口即到</span></li>
-          <li><span><strong>國道 3 號</strong>：沙鹿交流道或中投交流道下，循英才路或學士路方向前進</span></li>
+          <li><span><strong>Freeway 1 Southbound</strong>: Exit Daya Interchange (174.2K) → Zhongqing Rd → Daya Rd → turn left on Yingcai Rd → intersection with Xueshi Rd.</span></li>
+          <li><span><strong>Freeway 1 Northbound</strong>: Exit Taichung Interchange (178.6K) → Zhonggang Rd → turn left on Yingcai Rd → intersection with Xueshi Rd.</span></li>
+          <li><span><strong>Freeway 3</strong>: Exit Shalu or Zhongtou Interchange; follow Yingcai Rd or Xueshi Rd toward campus.</span></li>
         </ul>
 
-        <h3>附近停車</h3>
+        <h3>Nearby Parking</h3>
         <ul>
-          <li><span>復建大樓停車場（機械式）— 每小時 40 元</span></li>
-          <li><span>中正公園地下停車場（平面）— 每小時 40 元</span></li>
-          <li><span>五權立體停車場 — 汽車每小時 30 元 / 機車每次 20 元</span></li>
+          <li><span>Fùjiàn Building Lot (mechanical) — NTD 40/hour</span></li>
+          <li><span>Zhongzheng Park Underground Lot — NTD 40/hour</span></li>
+          <li><span>Wuquan Multi-Story Lot — Car: NTD 30/hour; Motorcycle: NTD 20/visit</span></li>
         </ul>
 
-        <a href="https://dbmi.cmu.edu.tw/page/66" target="_blank" class="btn-more-routes">
-          更多交通路線 →
+        <a href="https://dbmi-cmu-edu-tw.translate.goog/page/66?_x_tr_sl=zh-CN&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp" target="_blank" class="btn-more-routes">
+          More Directions →
         </a>
 
       </div>
 
-      <!-- 右欄：Google Map -->
+      <!-- Right: Google Map -->
       <div class="transport-map reveal" style="transition-delay:0.15s">
         <iframe
-          src="https://maps.google.com/maps?q=中國醫藥大學英才校區,台中市北區學士路91號&hl=zh-TW&z=16&output=embed"
+          src="https://maps.google.com/maps?q=中國醫藥大學英才校區,台中市北區學士路91號&hl=en&z=16&output=embed"
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="中國醫藥大學英才校區地圖">
+          title="China Medical University Yingcai Campus Map">
         </iframe>
       </div>
 
@@ -1929,24 +1879,24 @@
 <footer>
   <div class="footer-inner">
 
-    <!-- 左：主辦單位 logos -->
+    <!-- Left: Organizer logos -->
     <div>
-      <div class="footer-logos-label">主辦單位</div>
+      <div class="footer-logos-label">Organizers</div>
       <div class="footer-logos-row">
-        <img src="./assets/logo-cmu.png"  alt="中國醫藥大學"        class="footer-logo-img">
-        <img src="./assets/logo-dbmi.png" alt="中國醫藥大學醫療資訊學系" class="footer-logo-img">
-        <img src="./assets/logo-emi.gif" alt="中國醫藥大學醫學院雙語化學習計畫" class="footer-logo-img">
-        <img src="./assets/logo-sprout.png" alt="教育部高等教育深耕計畫" class="footer-logo-img">
-        <img src="./assets/logo-cmuh.png" alt="中國醫藥大學附設醫院" class="footer-logo-img">
-        <img src="./assets/logo-bdc.png"  alt="Big Data Center"     class="footer-logo-img square">
+        <img src="./assets/logo-cmu.png"    alt="China Medical University"             class="footer-logo-img">
+        <img src="./assets/logo-dbmi.png"   alt="Dept. of Biomedical Informatics"      class="footer-logo-img">
+        <img src="./assets/logo-emi.gif"    alt="CMU Bilingual Education Program"      class="footer-logo-img">
+        <img src="./assets/logo-sprout.png" alt="MOE Higher Education Sprout Project"  class="footer-logo-img">
+        <img src="./assets/logo-cmuh.png"   alt="China Medical University Hospital"    class="footer-logo-img">
+        <img src="./assets/logo-bdc.png"    alt="Big Data Center"                      class="footer-logo-img square">
       </div>
     </div>
 
-    <!-- 右：版權 -->
+    <!-- Right: Copyright -->
     <div class="footer-copy">
-      <p>© 2026 中國醫藥大學 醫療資訊學系</p>
+      <p>© 2026 China Medical University, Dept. of Biomedical Informatics</p>
       <p><a href="https://dbmi.cmu.edu.tw/" target="_blank">dbmi.cmu.edu.tw</a></p>
-      <p style="font-size:0.75rem; margin-top:4px;">AI Day 2026 — 智慧醫療創新論壇暨海報競賽</p>
+      <p style="font-size:0.75rem; margin-top:4px;">AI Day 2026 — Forum on Intelligent Healthcare Innovation &amp; Poster Competition</p>
     </div>
 
   </div>
@@ -1983,15 +1933,12 @@
       if (window.scrollY >= s.offsetTop - 100) current = s.id;
     });
     navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}`
-        ? 'var(--cyan)' : '';
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--cyan)' : '';
     });
   });
 
   /* ── Tab switcher ────────────────────────────── */
   const allTabs = document.querySelectorAll('.sub-tab');
-
-  // 頁面載入後啟動脈衝（提示可點擊）
   allTabs.forEach(t => t.classList.add('pulsing'));
 
   function switchTab(id, btn) {
@@ -1999,7 +1946,6 @@
     allTabs.forEach(el => el.classList.remove('active'));
     document.getElementById('tab-' + id).classList.add('active');
     btn.classList.add('active');
-    // 點過一次後停止所有脈衝
     allTabs.forEach(t => t.classList.remove('pulsing'));
   }
 
@@ -2022,9 +1968,7 @@
     document.body.style.overflow = '';
   }
 
-  // 偵測 navbar 是否放得下所有連結
   function syncNav() {
-    // 暫時讓 nav-links 可見以量測寬度
     navLinksEl.style.cssText = 'display:flex;visibility:hidden;position:absolute;';
     const linksW = navLinksEl.scrollWidth;
     const logoW  = document.querySelector('.nav-logo').offsetWidth;
@@ -2032,16 +1976,16 @@
     const padding = parseInt(getComputedStyle(navEl).paddingLeft) * 2;
     const fits = logoW + 24 + linksW + padding <= navW;
 
-    navLinksEl.style.cssText = '';            // 還原 inline style
+    navLinksEl.style.cssText = '';
     navLinksEl.style.display = fits ? 'flex' : 'none';
     hamburger.style.display  = fits ? 'none' : 'flex';
-    mobileMenu.style.display = 'block';       // drawer 永遠保留在 DOM
+    mobileMenu.style.display = 'block';
 
     if (fits) closeMenu();
   }
 
   new ResizeObserver(syncNav).observe(navEl);
-  syncNav(); // 初始執行一次
+  syncNav();
 
   hamburger.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.toggle('open');
@@ -2054,14 +1998,14 @@
     link.addEventListener('click', closeMenu);
   });
 
-  /* ── Countdown (optional display) ───────────── */
+  /* ── Countdown ───────────────────────────────── */
   function updateCountdown() {
     const deadline = new Date('2026-06-19T23:59:59');
     const now = new Date();
     const diff = deadline - now;
     if (diff <= 0) return;
     const d = Math.floor(diff / 86400000);
-    document.title = `AI Day 2026 — 距截止還有 ${d} 天`;
+    document.title = `AI Day 2026 — ${d} days until deadline`;
   }
   updateCountdown();
 </script>
