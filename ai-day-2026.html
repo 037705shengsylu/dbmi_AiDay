@@ -1049,6 +1049,151 @@
       font-weight: 700;
     }
 
+    /* ── Gallery Carousel ────────────────────────────────── */
+    #gallery {
+      background: var(--navy);
+      padding: 52px 0;
+    }
+    .gallery-head {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 0 24px;
+    }
+    .gallery-head .section-label { color: var(--cyan); }
+    .gallery-head h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .gallery-carousel {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery-viewport {
+      flex: 1;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .gallery-track {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+    }
+    .gallery-track img {
+      height: 210px;
+      width: auto;
+      max-width: 320px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-track img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+    .gallery-arrow {
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+      backdrop-filter: blur(4px);
+      user-select: none;
+    }
+    .gallery-arrow:hover {
+      background: rgba(255,255,255,0.26);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .gallery-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .gallery-dot.active {
+      background: var(--cyan);
+      transform: scale(1.35);
+    }
+    /* ── Lightbox ─────────────────────────────────────────── */
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-lightbox.open { display: flex; }
+    .lb-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+    }
+    .lb-close {
+      position: absolute;
+      top: 18px; right: 24px;
+      background: none; border: none;
+      color: rgba(255,255,255,0.65);
+      font-size: 38px;
+      line-height: 1;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .lb-close:hover { color: var(--white); }
+    .lb-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .lb-nav:hover { background: rgba(255,255,255,0.28); }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-counter {
+      position: absolute;
+      bottom: 22px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+    }
+
     /* ── Register ─────────────────────────────────────────── */
     #register { background: var(--white); text-align: center; }
 
@@ -1511,9 +1656,6 @@
     <div class="section-head reveal">
       <span class="section-label">About</span>
       <h2 class="section-title">關於 <span class="accent">AI Day</span></h2>
-      <p class="section-desc">
-        旨在鼓勵本校學生與院內同仁參與醫療資訊領域的基礎和應用研究，培養學術發表能力，推動科學技術的進步與創新。
-      </p>
     </div>
 
     <div class="about-two-col">
@@ -1946,6 +2088,31 @@
   </div>
 </section>
 
+<!-- ══ GALLERY ═══════════════════════════════════════════════ -->
+<section id="gallery">
+  <div class="gallery-head">
+    <span class="section-label">Highlights</span>
+    <h2>2025 活動花絮</h2>
+  </div>
+  <div class="gallery-carousel">
+    <button class="gallery-arrow" id="galleryPrev">&#8249;</button>
+    <div class="gallery-viewport" id="galleryViewport">
+      <div class="gallery-track" id="galleryTrack"></div>
+    </div>
+    <button class="gallery-arrow" id="galleryNext">&#8250;</button>
+  </div>
+  <div class="gallery-dots" id="galleryDots"></div>
+</section>
+
+<!-- ══ LIGHTBOX ══════════════════════════════════════════════ -->
+<div class="gallery-lightbox" id="galleryLightbox">
+  <button class="lb-close" id="lbClose">&#10005;</button>
+  <button class="lb-nav lb-prev" id="lbPrev">&#8249;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">&#8250;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <!-- ══ REGISTER ══════════════════════════════════════════════ -->
 <section id="register">
   <div class="container corner-deco">
@@ -2165,6 +2332,141 @@
   document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
+
+  /* ── Gallery Carousel + Lightbox ────────────── */
+  (function() {
+    const TOTAL = 43;
+    const BASE  = './gallery/1140503_AI_DAY_';
+    const images = Array.from({length: TOTAL}, (_, i) => `${BASE}${i}.jpg`);
+
+    const track    = document.getElementById('galleryTrack');
+    const viewport = document.getElementById('galleryViewport');
+    const dotsWrap = document.getElementById('galleryDots');
+    const prevBtn  = document.getElementById('galleryPrev');
+    const nextBtn  = document.getElementById('galleryNext');
+    const lightbox = document.getElementById('galleryLightbox');
+    const lbImg    = document.getElementById('lbImg');
+    const lbClose  = document.getElementById('lbClose');
+    const lbPrev   = document.getElementById('lbPrev');
+    const lbNext   = document.getElementById('lbNext');
+    const lbCnt    = document.getElementById('lbCounter');
+    if (!track) return;
+
+    // 依視窗寬度決定每組顯示張數
+    function perGroup() {
+      const w = window.innerWidth;
+      if (w < 480) return 1;
+      if (w < 680) return 2;
+      if (w < 960) return 3;
+      return 4;
+    }
+
+    let currentGroup = 0;
+    let lbIndex = 0;
+    let autoTimer = null;
+    const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    function totalGroups() { return Math.ceil(TOTAL / perGroup()); }
+
+    // 渲染當組圖片
+    function renderGroup(idx) {
+      const pg    = perGroup();
+      const start = idx * pg;
+      const end   = Math.min(start + pg, TOTAL);
+      track.innerHTML = '';
+      for (let i = start; i < end; i++) {
+        const img = document.createElement('img');
+        img.src     = images[i];
+        img.alt     = `AI Day 2025 花絮 ${i + 1}`;
+        img.loading = 'lazy';
+        img.addEventListener('click', () => openLightbox(i));
+        track.appendChild(img);
+      }
+    }
+
+    // 切換組（含淡出淡入）
+    function goTo(idx) {
+      const total = totalGroups();
+      currentGroup = ((idx % total) + total) % total;
+      viewport.style.opacity = '0';
+      setTimeout(() => {
+        renderGroup(currentGroup);
+        viewport.style.opacity = '1';
+        updateDots();
+      }, 300);
+    }
+
+    // 建立 & 更新小點
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < totalGroups(); i++) {
+        const dot = document.createElement('button');
+        dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `第 ${i + 1} 組`);
+        dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+        dotsWrap.appendChild(dot);
+      }
+    }
+    function updateDots() {
+      dotsWrap.querySelectorAll('.gallery-dot')
+        .forEach((d, i) => d.classList.toggle('active', i === currentGroup));
+    }
+
+    // 自動輪播（僅桌機，5 秒無操作觸發）
+    function resetAuto() {
+      if (!isDesktop) return;
+      clearTimeout(autoTimer);
+      autoTimer = setTimeout(() => { goTo(currentGroup + 1); resetAuto(); }, 5000);
+    }
+
+    // 箭頭按鈕
+    prevBtn.addEventListener('click', () => { goTo(currentGroup - 1); resetAuto(); });
+    nextBtn.addEventListener('click', () => { goTo(currentGroup + 1); resetAuto(); });
+
+    // ── Lightbox ──
+    function openLightbox(idx) {
+      lbIndex = idx;
+      lbImg.src = images[lbIndex];
+      lbImg.alt = `AI Day 2025 花絮 ${lbIndex + 1}`;
+      lbCnt.textContent = `${lbIndex + 1} / ${TOTAL}`;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function lbNav(dir) {
+      lbIndex = ((lbIndex + dir) + TOTAL) % TOTAL;
+      lbImg.src = images[lbIndex];
+      lbImg.alt = `AI Day 2025 花絮 ${lbIndex + 1}`;
+      lbCnt.textContent = `${lbIndex + 1} / ${TOTAL}`;
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', () => lbNav(-1));
+    lbNext.addEventListener('click', () => lbNav(1));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   lbNav(-1);
+      if (e.key === 'ArrowRight')  lbNav(1);
+    });
+
+    // ── 初始化 ──
+    viewport.style.transition = 'opacity 0.35s ease';
+    buildDots();
+    renderGroup(0);
+    resetAuto();
+
+    // 視窗縮放時重建
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { buildDots(); renderGroup(currentGroup); }, 200);
+    });
+  })();
 
   /* ── Dynamic Hero Deadline ──────────────────── */
   (function() {
