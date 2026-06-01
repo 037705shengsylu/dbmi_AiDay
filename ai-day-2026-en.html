@@ -493,32 +493,40 @@
     }
 
     /* ── Organizers ────────────────────────────────────────── */
-    #organizers { background: var(--card); }
+    #organizers { background: var(--card); overflow: hidden; }
 
     .organizer-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 148px 28px;
       max-width: 860px;
       margin: 0 auto;
+      padding-top: 116px;
     }
     .organizer-card {
       border-radius: 16px;
-      overflow: hidden;
       border: 1px solid rgba(0,168,160,0.15);
       box-shadow: 0 6px 28px rgba(0,100,100,0.07);
       background: var(--white);
       transition: transform 0.25s, box-shadow 0.25s;
+      text-align: center;
+      padding: 0 0 28px;
+      position: relative;
     }
     .organizer-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 44px rgba(0,100,100,0.13);
     }
     .organizer-photo {
-      width: 100%;
-      aspect-ratio: 3 / 4;
+      width: 232px;
+      height: 232px;
+      border-radius: 50%;
       overflow: hidden;
       background: linear-gradient(135deg, #C8E6E5, #D8EEF8);
+      border: 4px solid var(--white);
+      outline: 2px solid rgba(0,168,160,0.25);
+      box-shadow: 0 6px 20px rgba(0,100,100,0.15);
+      margin: -116px auto 0;
     }
     .organizer-photo img {
       width: 100%; height: 100%;
@@ -527,10 +535,9 @@
       display: block;
       transition: transform 0.4s ease;
     }
-    .organizer-card:hover .organizer-photo img { transform: scale(1.04); }
+    .organizer-card:hover .organizer-photo img { transform: scale(1.07); }
     .organizer-info {
-      padding: 20px 22px 24px;
-      border-top: 3px solid var(--teal);
+      padding: 16px 20px 0;
     }
     .organizer-name {
       font-size: 1.05rem;
@@ -550,8 +557,32 @@
       color: var(--gray);
       line-height: 1.55;
     }
-    @media (max-width: 640px) {
-      .organizer-grid { grid-template-columns: 1fr; max-width: 340px; }
+    /* ── Organizer RWD ──────────────────────────────────────── */
+    @media (max-width: 780px) {
+      .organizer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 500px;
+        gap: 120px 20px;
+        padding-top: 90px;
+      }
+      .organizer-photo {
+        width: 180px;
+        height: 180px;
+        margin-top: -90px;
+      }
+    }
+    @media (max-width: 520px) {
+      .organizer-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+        gap: 110px 0;
+        padding-top: 80px;
+      }
+      .organizer-photo {
+        width: 160px;
+        height: 160px;
+        margin-top: -80px;
+      }
     }
 
     /* ── Speaker ───────────────────────────────────────────── */
@@ -714,12 +745,12 @@
 
     .faculty-photo {
       width: 88px;
-      height: 108px;
-      border-radius: 10px;
+      height: 88px;
+      border-radius: 50%;
       flex-shrink: 0;
       overflow: hidden;
       background: linear-gradient(135deg, #C8E6E5 0%, #D8EEF8 100%);
-      border: 2px solid rgba(0,168,160,0.2);
+      border: 2px solid rgba(0,168,160,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -730,7 +761,7 @@
     .faculty-photo img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: top;
+      object-position: center top;
       display: block;
     }
 
