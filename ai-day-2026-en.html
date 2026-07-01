@@ -986,23 +986,97 @@
     #awards .section-label { color: var(--cyan); }
     #awards .section-desc { color: rgba(255,255,255,0.55); }
 
-    .awards-grid {
+    .awards-groups {
       display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
+      gap: 20px;
       margin-top: 52px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .award-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 24px 24px 28px;
+    }
+    .award-group:last-child {
+      background: rgba(255,255,255,0.075);
+      border-color: rgba(255,255,255,0.16);
+    }
+    .award-group-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--cyan);
+      padding: 5px 18px;
+      border: 1px solid rgba(0,168,160,0.45);
+      border-radius: 100px;
+      background: rgba(0,168,160,0.1);
+      white-space: nowrap;
+    }
+    .awards-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: nowrap;
+    }
+    @media (max-width: 1080px) {
+      .awards-groups {
+        flex-direction: column;
+        align-items: stretch;
+        width: max-content;
+        max-width: calc(100vw - 48px);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .award-group { width: auto; align-items: center; }
+      .awards-row { flex-wrap: nowrap; }
+    }
+    @media (max-width: 780px) {
+      .poster-row {
+        display: grid;
+        grid-template-columns: repeat(2, 190px);
+        gap: 14px;
+      }
+      .poster-row .award-card { width: 100%; padding: 36px 20px; }
+      .poster-row .award-card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 190px;
+      }
+    }
+    @media (max-width: 490px) {
+      .poster-row {
+        grid-template-columns: 220px;
+        gap: 12px;
+      }
+      .poster-row .award-card { padding: 32px 18px; }
     }
 
+    .award-notice {
+      margin: 40px auto 0;
+      max-width: 860px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 4px solid var(--cyan);
+      border-radius: 8px;
+      padding: 20px 28px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      text-align: left;
+    }
     .award-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
-      padding: 36px 30px;
+      padding: 44px 28px;
       text-align: center;
-      flex: 1;
-      min-width: 200px;
-      max-width: 260px;
+      width: 220px;
+      flex-shrink: 0;
       position: relative;
       overflow: hidden;
       transition: transform 0.25s;
@@ -2045,26 +2119,48 @@
       </p>
     </div>
 
-    <div class="awards-grid">
-      <div class="award-card gold reveal">
-        <span class="award-medal">Outstanding</span>
-        <div class="award-title">NTD 2,500</div>
-        <div class="award-subtitle">Certificate + Prize</div>
-        <div class="award-count">2 Winners</div>
+    <div class="awards-groups">
+      <!-- Oral Presentation -->
+      <div class="award-group reveal">
+        <div class="award-group-label">Oral Presentation</div>
+        <div class="awards-row">
+          <div class="award-card gold">
+            <span class="award-medal">Outstanding</span>
+            <div class="award-title">NTD 2,500</div>
+            <div class="award-subtitle">Certificate + Prize</div>
+            <div class="award-count">4 Winners</div>
+          </div>
+        </div>
       </div>
-      <div class="award-card silver reveal" style="transition-delay:0.1s">
-        <span class="award-medal">Merit</span>
-        <div class="award-title">NTD 1,500</div>
-        <div class="award-subtitle">Certificate + Prize</div>
-        <div class="award-count">6 Winners</div>
-      </div>
-      <div class="award-card bronze reveal" style="transition-delay:0.2s">
-        <span class="award-medal">Honorable Mention</span>
-        <div class="award-title">NTD 500</div>
-        <div class="award-subtitle">Certificate + Prize</div>
-        <div class="award-count">10 Winners</div>
+      <!-- Poster Competition -->
+      <div class="award-group reveal" style="transition-delay:0.1s">
+        <div class="award-group-label">Poster Competition</div>
+        <div class="awards-row poster-row">
+          <div class="award-card gold">
+            <span class="award-medal">Outstanding</span>
+            <div class="award-title">NTD 2,500</div>
+            <div class="award-subtitle">Certificate + Prize</div>
+            <div class="award-count">2 Teams</div>
+          </div>
+          <div class="award-card silver">
+            <span class="award-medal">Merit</span>
+            <div class="award-title">NTD 1,500</div>
+            <div class="award-subtitle">Certificate + Prize</div>
+            <div class="award-count">6 Teams</div>
+          </div>
+          <div class="award-card bronze">
+            <span class="award-medal">Honorable</span>
+            <div class="award-title">NTD 500</div>
+            <div class="award-subtitle">Certificate + Prize</div>
+            <div class="award-count">10 Teams</div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <p class="award-notice reveal" style="transition-delay:0.2s">
+      [Award Expansion Notice] In recognition of the exceptionally high quality of submissions this year, the review committee has resolved to expand the award slots — adding 2 Outstanding awards each to both the Oral Presentation and Poster Competition categories.
+    </p>
   </div>
 </section>
 
